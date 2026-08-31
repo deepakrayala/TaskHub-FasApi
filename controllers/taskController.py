@@ -22,7 +22,14 @@ async def getAllTasks(PAGE: int, SIZE: int, Token: str = Header(...)):
         response = await client.get(NODE_URL + f"/task/getalltasks/{PAGE}/{SIZE}", 
                                     headers={'Token': Token})
     return response.json()
-
+@router.get("/getmytasks/{PAGE}/{SIZE}")
+async def getMyTasks(PAGE: int, SIZE: int, Token: str = Header(...)):
+    async with httpx.AsyncClient() as client:
+        response = await client.get(
+            NODE_URL + f"/task/getmytasks/{PAGE}/{SIZE}",
+            headers={'Token': Token}
+        )
+    return response.json()
 @router.get("/gettask/{ID}")
 async def getTask(ID: str, Token: str = Header(...)):
     async with httpx.AsyncClient() as client:
