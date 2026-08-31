@@ -7,7 +7,7 @@ app = FastAPI()
 #Enable Cors
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://taskhub-2api.onrender.com"],
+    allow_origins=["https://taskhub-29pi.onrender.com"],
     allow_credentials=True,
     allow_methods = ["*"],
     allow_headers = ["*"]
